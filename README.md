@@ -1,31 +1,25 @@
-
-![App Brewery Banner](Documentation/AppBreweryBanner.png)
-
 #  Clima
 
-## Our Goal
+## Project Goal
 
-It’s time to take our app development skills to the next level. We’re going to introduce you to the wonderful world of Application Programming Interfaces (APIs) to grab live data from the internet. If you’re dreaming of making that Twitter-powered stock trading app then you’re about add some serious tools to your toolbelt!
+Using Application Programming Interfaces (APIs) to grab live data from a Weather API online
 
+The weather app has an elegant UI that is dark-mode enabled. It can check the weather for the current location based on the GPS data from the iPhone as well as by searching for a city manually. 
 
-## What you will create
+## What I've applied
 
-By the end of the module, you will have made a beautiful, dark-mode enabled weather app. You'll be able to check the weather for the current location based on the GPS data from the iPhone as well as by searching for a city manually. 
-
-## What you will learn
-
-* How to create a dark-mode enabled app.
-* How to use vector images as image assets.
-* Learn to use the UITextField to get user input. 
-* Learn about the delegate pattern.
+* Dark-mode enabled app.
+* Vector images as image assets.
+* The UITextField to get user input. 
+* The delegate pattern.
 * Swift protocols and extensions. 
 * Swift guard keyword. 
 * Swift computed properties.
 * Swift closures and completion handlers.
-* Learn to use URLSession to network and make HTTP requests.
-* Parse JSON with the native Encodable and Decodable protocols. 
-* Learn to use Grand Central Dispatch to fetch the main thread.
-* Learn to use Core Location to get the current location from the phone GPS. 
+* URLSession to network and make HTTP requests.
+* JSON Parsing with the native Encodable and Decodable protocols. 
+* Grand Central Dispatch to fetch the main thread.
+* Core Location to get the current location from the phone GPS. 
 
 ### Condition Codes
 ```
@@ -49,6 +43,6 @@ switch conditionID {
         }
 ```
 
->This is a companion project to The App Brewery's Complete App Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
+>This is a companion project to The App Brewery's Complete App Development Bootcamp. (https://www.appbrewery.co/)
 
-![End Banner](Documentation/readme-end-banner.png)
+![App Brewery Banner](Documentation/AppBreweryBanner.png)
