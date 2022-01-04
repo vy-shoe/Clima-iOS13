@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherData: Decodable {
+struct WeatherData: Decodable { //Codable = both Decodable and Encodable
     let name: String
     let main: Main
     let weather: [Weather]
