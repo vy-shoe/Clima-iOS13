@@ -7,23 +7,32 @@
 //
 
 import UIKit
+import CoreLocation
 
 //UI TextField Delegate allows the management of editing and validation of text in a text field object
-class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+class WeatherViewController: UIViewController {
 
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager() //responsible for getting current GPS location of the phone
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.requestWhenInUseAuthorization()
         searchTextField.delegate = self //set the delegate as current class... textfield should report the user actions back to the ViewController
         weatherManager.delegate = self
+        
     }
+    
+}
 
+//MARK: - UITextFieldDelegate
+extension WeatherViewController: UITextFieldDelegate {
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true) //tell searchfield that editing is done and keyboard is dismissed
     }
@@ -53,14 +62,21 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         
         searchTextField.text = "" //removes the text once searched
     }
-    
+}
+
+
+//MARK: - WeatherManagerDelegate
+extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        print(weather.temparature)
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.cityLabel.text = weather.cityName
+            self.descriptionLabel.text = weather.description
+        }
     }
     
     func didFailWithError(error: Error) {
         print(error)
     }
-    
 }
-
