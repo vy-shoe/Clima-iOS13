@@ -54,8 +54,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         searchTextField.text = "" //removes the text once searched
     }
     
-    func didUpdateWeather(weather: WeatherModel) {
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         print(weather.temparature)
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
     
 }
