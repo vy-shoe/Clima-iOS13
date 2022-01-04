@@ -16,6 +16,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    var weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self //set the delegate as current class... textfield should report the user actions back to the ViewController
@@ -44,7 +46,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     //View Controller can empty textfield once user has returned/ended editing, prevents repetition
     func textFieldDidEndEditing(_ textField: UITextField) {
         //Use textfield to get the weather for that city and save before clearing
-        
+        if let city = searchTextField.text {
+            weatherManager.fetchWeather(cityName: city)
+        }
         
         searchTextField.text = "" //removes the text once searched
     }
